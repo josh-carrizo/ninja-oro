@@ -19,8 +19,10 @@
     </div>
       <div class="card darken-1">
       <h4>Historial de actividades</h4>
-      <ul>
-        <li v-for="(historial,i) in historiales" v-bind:key="i" >{{historial}} </li>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" v-for="(historial,i) in historiales" v-bind:key="i" >{{historial}}
+        <span class="close" @click="$delete(historiales, i)">x</span>
+        </li>
       </ul>
     </div>
   </div>
@@ -49,5 +51,22 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.close {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  padding: 12px 16px;
+  transform: translate(0%, -50%);
+}
+.card-title{
+  background-color: rgb(195, 211, 56);
+  display: block;
+  color:white;
+  opacity: 1;
+  border-radius: 2px;
+
 }
 </style>
