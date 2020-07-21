@@ -17,9 +17,11 @@
         <findgold  titulo="casino" :max_gold="50" :min_gold="-50"/>
       </div>      
     </div>
-    <h1>Historial de actividades</h1>
-    <div class="actividad" >{{sumar_info}}
-
+      <div class="card darken-1">
+      <h4>Historial de actividades</h4>
+      <ul>
+        <li v-for="(historial,i) in historiales" v-bind:key="i" >{{historial}} </li>
+      </ul>
     </div>
   </div>
 </template>
