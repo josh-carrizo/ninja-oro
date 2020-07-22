@@ -8,5 +8,9 @@ export default{
     },
     historiales(actividad){
         this.state.historiales.push(actividad);
+    },
+    default_data(){
+        this.state.oro_total = 0,
+        this.state.historiales = []
     }
 }

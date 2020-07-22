@@ -17,14 +17,17 @@
         <findgold  titulo="casino" :max_gold="50" :min_gold="-50"/>
       </div>      
     </div>
+
       <div class="card darken-1">
-      <h4>Historial de actividades</h4>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item" v-for="(historial,i) in historiales" v-bind:key="i" >{{historial}}
-        <span class="close" @click="$delete(historiales, i)">x</span>
-        </li>
-      </ul>
-    </div>
+        <h4>Historial de actividades</h4>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" v-for="(historial,i) in historiales" v-bind:key="i" >{{historial}}
+          <span class="close" @click="$delete(historiales, i)">x</span>
+          </li>
+        </ul>
+      </div>
+      <button @click="resetear()"> Reset</button>
+      <!--<vue-confirm-dialog><button @onclick="resetear()"> Reset</button></vue-confirm-dialog> -->
   </div>
 </template>
 
@@ -39,6 +42,42 @@ export default {
   },
   components: {
     findgold
+  },
+  /*
+  methods: {
+    handleClick(){
+      this.$confirm(
+        {
+          message: `Are you sure?`,
+          button: {
+            no: 'No',
+            yes: 'Yes'
+          },
+          
+          * Callback Function
+          * @param {Boolean} confirm 
+          
+          callback: confirm => {
+            if (confirm) {
+              // ... do something
+            }
+          }
+        }
+      )
+    } 
+  }*/
+  methods:{
+    resetear: function(){
+      const respuesta = confirm('¿Estás seguro de borrar todo?!');
+      if(respuesta){
+      
+      storeOro.default_data();
+      console.log("funciona")
+      } else {
+        alert('Buena shoro')
+      }
+      
+    }
   }
 }
 </script>
