@@ -13,7 +13,7 @@
 import storeOro from '../storeOro';
 
 export default {
-  name: "findgold",
+  name: "Findgold",
  
 
   props: {
@@ -30,9 +30,10 @@ export default {
       let nuevoPuntaje = Math.floor(Math.random() * (this.max_gold - this.min_gold + 1) ) + this.min_gold;
       storeOro.sumar_oro(nuevoPuntaje);
 
-      let actividades = ('Se modifico ' + nuevoPuntaje +' de oro en '+ this.titulo + ' el ' + fechaActual);
+      let actividad_texto = 'Se modifico ' + nuevoPuntaje +' de oro en '+ this.titulo + ' el ' + fechaActual;
 
-      storeOro.historiales(actividades);
+
+      storeOro.historiales({texto: actividad_texto, valor:nuevoPuntaje});
     }
   }
 }
