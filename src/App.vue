@@ -13,8 +13,8 @@
       <div class="card darken-1">
         <h4>Historial de actividades</h4>
         <ul class="list-group list-group-flush">
-          <li  class="list-group-item" v-for="(historial,i) in historiales" v-bind:key="i" :class="{ green: historial.valor > 0, red: historial.valor < 0 , yellow: historial.valor == 0}">{{historiales[i]}}
-          <span class="close" @click="$delete(historiales, i)" >x</span>
+          <li  class="list-group-item" :data-index="i" v-for="(historial,i) in historiales" v-bind:key="i" :class="{ green: historial.valor > 0, red: historial.valor < 0 , yellow: historial.valor == 0}">{{historiales[i]}}
+          <button @click="eliminar(i)">x</button>
           </li>
         </ul>
       </div>
@@ -76,6 +76,10 @@ export default {
         alert('Seguimos igual')
       }
       
+    },
+    eliminar(i){
+      this.$store.commit("eliminar_historia")
+      console.log(i);
     }
   }
 }

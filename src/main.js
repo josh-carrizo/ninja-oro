@@ -27,6 +27,13 @@ const store = new Vuex.Store({
     default_data(state){
       state.oro_total = 0,
       state.historiales = []
+    },
+    eliminar_historia(state,i){
+      let HistoriaEncontrada = state.historiales.find(historiales => historiales.i == i);
+      
+
+      console.log(HistoriaEncontrada)
+
     }
     
   }
